@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: springboot-api
+    runtime: java
+    repo: https://github.com/VISHALNAYAK183/Shopi-backend.git
+    buildCommand: ./mvnw clean install
+    startCommand: java -jar target/*.jar
+    env: java
+    plan: free
+    region: oregon
+
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        sync: false
+      - key: SPRING_DATASOURCE_USERNAME
+        sync: false
+      - key: SPRING_DATASOURCE_PASSWORD
+        sync: false
+      - key: PORT
+        value: 8080
