@@ -21,4 +21,10 @@ public class ProductController {
     public List<Product> getAllProducts() {
         return service.getAllProducts();
     }
+
+    // 🔥 ADD THIS METHOD TO FIX YOUR ISSUE
+    @GetMapping("/{id}")
+    public Product getProductById(@PathVariable Long id) {
+        return service.getProductById(id); // This method must exist in your ProductService
+    }
 }

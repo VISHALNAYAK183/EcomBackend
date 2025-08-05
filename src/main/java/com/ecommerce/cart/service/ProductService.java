@@ -18,4 +18,8 @@ public class ProductService {
     public List<Product> getAllProducts() {
         return repo.findAll();
     }
+    public Product getProductById(Long id) {
+    return repo.findById(id)
+            .orElseThrow(() -> new RuntimeException("Product not found"));
+}
 }

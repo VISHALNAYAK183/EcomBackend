@@ -35,6 +35,9 @@ public class User {
     @Column(name = "password")
     private String password;
 
+
+
+
     // Getters and Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
@@ -56,4 +59,13 @@ public class User {
 
     public LocalDateTime getOtpCreatedAt() { return otpCreatedAt; }
     public void setOtpCreatedAt(LocalDateTime otpCreatedAt) { this.otpCreatedAt = otpCreatedAt; }
+
+    public Boolean getIsVerified() {
+    return isVerified;
+}
+
+public void setIsVerified(Boolean isVerified) {
+    this.isVerified = isVerified;
+}
+
 }
