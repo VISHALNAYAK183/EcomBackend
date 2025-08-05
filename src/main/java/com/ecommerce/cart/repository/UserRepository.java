@@ -1,11 +1,11 @@
 package com.ecommerce.cart.repository;
 
-import com.ecommerce.cart.entity.users;
+import com.ecommerce.cart.entity.User;
 
 import java.util.*;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-public interface UserRepository extends JpaRepository<users, Long> {
-    Optional<users> findByEmail(String email);
-    Optional<users> findByMobile(String mobile);
+public interface UserRepository extends JpaRepository<User, Long> {
+    Optional<User> findByEmail(String email);
+    Optional<User> findByMobile(String mobile);
 }

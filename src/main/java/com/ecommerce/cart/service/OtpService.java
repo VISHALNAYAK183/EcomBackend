@@ -1,7 +1,7 @@
 
 package com.ecommerce.cart.service;
 
-import com.ecommerce.cart.entity.users;
+import com.ecommerce.cart.entity.User;
 import com.ecommerce.cart.repository.UserRepository;
 
 import java.time.LocalDateTime;
@@ -19,7 +19,7 @@ public class OtpService {
 private EmailService emailService; 
     public String sendOtp(String contact) {
         String otp = String.valueOf(new Random().nextInt(899999) + 100000); // 6-digit OTP
-        Optional<users> userOpt;
+        Optional<User> userOpt;
 
         if (contact.contains("@")) {
             userOpt = userRepository.findByEmail(contact);
@@ -28,7 +28,7 @@ private EmailService emailService;
         }
 
         if (userOpt.isPresent()) {
-            users user = userOpt.get();
+            User user = userOpt.get();
             user.setOtp(otp);
             user.setOtpCreatedAt(LocalDateTime.now());
             userRepository.save(user);

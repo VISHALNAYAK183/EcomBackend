@@ -5,7 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.ecommerce.cart.dto.OtpRequest;
-import com.ecommerce.cart.entity.users;
+import com.ecommerce.cart.entity.User;
 import com.ecommerce.cart.repository.UserRepository;
 import com.ecommerce.cart.service.EmailService;
 
@@ -26,13 +26,13 @@ public class OtpController {
     @PostMapping("/verify")
     public ResponseEntity<?> verifyUser(@RequestBody OtpRequest request) {
         String input = request.getEmailOrMobile();
-        Optional<users> userOpt = input.contains("@")
+        Optional<User> userOpt = input.contains("@")
                 ? userRepository.findByEmail(input)
                 : userRepository.findByMobile(input);
 
         if (userOpt.isPresent()) {
             String otp = String.valueOf(new Random().nextInt(900000) + 100000);
-            users user = userOpt.get();
+            User user = userOpt.get();
             user.setOtp(otp);
             user.setOtpCreatedAt(LocalDateTime.now());
             userRepository.save(user);
