@@ -22,9 +22,9 @@ public class EmailService {
             message.setFrom("vishunyk108@gmail.com"); // Important
 
             mailSender.send(message);
-            System.out.println("✅ Email sent successfully to: " + toEmail);
+            System.out.println(" Email sent successfully to: " + toEmail);
         } catch (Exception e) {
-            System.out.println("❌ Failed to send email");
+            System.out.println("Failed to send email");
             e.printStackTrace(); // This will reveal the root cause
         }
     }
